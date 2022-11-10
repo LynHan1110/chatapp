@@ -1,0 +1,30 @@
+.title {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+/*말풍선 무늬*/
+.msgbox{
+  position: relative;
+  margin: 0 0 10px 60%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: #fff;
+}
+.msgbox::after{
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: -10px;
+  width: 0;
+  height: 0; 
+  border-bottom: 16px solid transparent;
+  border-left: 16px solid #3b82f6;
+}
+
+@media screen and (max-width: 768px) {
+	.msgbox{
+		margin: 0 0 10px 30%;
+	}
+}
