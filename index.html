@@ -7,13 +7,19 @@
 		</head>
 	</head>
 	<body>
-		<h1 id="title">Chat App</h1>
+	 	<header id="header"><h1 id="title">Chat App</h1></header>
+		
 		<div id="container">
 			<div id="messages"></div>
 			<div id="msgform">
 				<input id="msginput" type="text" onkeyup="enterkey();" placeholder="메시지를 입력하세요"/><button id="sendbtn" onclick="sendmsg()">전송</button> <!-- 전송 버튼-->
 			</div>
 		</div>
+		
+		<footer id="footer">
+			<a class="w-500" style="color:#777" href="https://www.scaledrone.com/">이 어플리케이션은 Scaledrone API로 만들었습니다.</a>
+			<span>제작자: <span class="w-500">라즈베리 lynhan2101</span>    디스코드: <span class="w-500">라즈베리#8972 lynhan2101#0572</span></span>
+		</footer>
     </body>
 	<script src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
 	<script src="script.js"></script>
