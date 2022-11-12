@@ -2,11 +2,18 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css">
+		<head>
+			<title>Chatapp</title>
+		</head>
 	</head>
 	<body>
 		<h1 id="title">Chat App</h1>
-    	<input id="msginput" type="text" onkeyup="enterkey();"/><button id="sendbtn" onclick="sendmsg()">전송</button> <!-- 전송 버튼-->
-		<div id="messages"></div>
+		<div id="container">
+			<div id="messages"></div>
+			<div id="msgform">
+				<input id="msginput" type="text" onkeyup="enterkey();" placeholder="메시지를 입력하세요"/><button id="sendbtn" onclick="sendmsg()">전송</button> <!-- 전송 버튼-->
+			</div>
+		</div>
     </body>
 	<script src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
 	<script src="script.js"></script>
