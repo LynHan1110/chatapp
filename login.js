@@ -1,4 +1,4 @@
-Kakao.init('3db8eca387a3f5ef1a094040401606f0'); //API 키
+Kakao.init('API키 비공개'); //API 키
 console.log(Kakao.isInitialized());
 
   Kakao.Auth.createLoginButton({
