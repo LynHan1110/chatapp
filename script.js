@@ -1,4 +1,5 @@
-const drone = new Scaledrone('EysghIgjliEb1VAN')
+const drone = new Scaledrone('EysghIgjliEb1VAN'); //API 키 변수
+let members = []; //온라인 멤버 표시 변수
 
 drone.on('open', error => {
   if (error) {
@@ -21,6 +22,19 @@ room.on('open', error => {
 
 room.on('message', message => {
 	printmsg(message);
+});
+
+room.on("members", m => { //처음 실행할 때 온라인 멤버 불러오기
+	members = m;
+})
+
+room.on("join", member => { //새로운 멤버가 들어오면 members배열에 추가하기
+	members.push(member); 
+})
+
+room.on('member_leave', ({id}) => { //멤버가 떠나면 members배열에서 삭제하기
+	const index = members.findIndex(member => member.id === id);
+	members.splice(index, 1);
 });
 
 drone.on('error', error => console.error(error));
@@ -58,7 +72,7 @@ function printmsg(message){
 	
 	const msg = document.createTextNode(message.data);
 	const msgtime = new Date(message.timestamp * 1000); //msg작성한 시간 변수에 저장
-	const msgtimetext = document.createTextNode(" "+msgtime.getHours()+":"+(msgtime.getMinutes() >= 10 ? msgtime.getMinutes() : "0" + msgtime.getMinutes())); //10시 9분 -> 10:09
+	const msgtimetext = document.createTextNode(msgtime.getHours()+":"+(msgtime.getMinutes() >= 10 ? msgtime.getMinutes() : "0" + msgtime.getMinutes())); //10시 9분 -> 10:09
 	
 	msgspan.appendChild(msg);
 	timespan.append(msgtimetext);
