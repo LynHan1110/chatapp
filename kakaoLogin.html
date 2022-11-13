@@ -10,7 +10,12 @@
 	<a id="kakao-login-btn"></a>
 	<button class="api-btn" onclick="unlinkApp()">앱 탈퇴하기</button>
 	<div id="result"></div>
-</body>
+	
+	<form action="script.js" method="POST">
+		<input type="hidden" id="userid">
+		<input type="hidden" id="username">
+	</form>
+</body> <!--index.html으로 로그인한 유저의 정보를 보내는 코드-->
 	<script src="login.js"></script>
 	<script src="logout.js"></script>
 </html>
