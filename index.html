@@ -2,12 +2,12 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css">
-		<head>
-			<title>Chatapp</title>
-		</head>
+		<title>Chatapp</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	</head>
 	<body>
-	 	<header id="header"><h1 id="title">Chat App</h1></header>
+	 	<header id="header"><h1 id="title">Chat App</h1><a id="kakao-login-btn"></a>
+		<button class="api-btn" onclick="unlinkApp()" style="display:none" id="kakao-logout-btn">앱 탈퇴하기</button></header>
 		
 		<div id="container">
 			<div id="messages"></div>
@@ -20,7 +20,13 @@
 			<a class="w-500" style="color:#777" href="https://www.scaledrone.com/">이 어플리케이션은 Scaledrone API로 만들었습니다.</a>
 			<span>제작자: <span class="w-500">라즈베리 lynhan2101</span>    디스코드: <span class="w-500">라즈베리#8972 lynhan2101#0572</span></span>
 		</footer>
+	
+
     </body>
 	<script src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
 	<script src="script.js"></script>
+	<script src="login.js"></script>
+	<script src="logout.js"></script>
 </html>
+
+<!--사이트 url: https://chatapp.co.kr-->
