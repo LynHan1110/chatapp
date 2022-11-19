@@ -119,9 +119,9 @@
         })
 		
 		document.getElementById('signOutButton').addEventListener('click', (event) => {
-			event.preventDefault()
-			signOut()
-			.then((userCredential))
+			event.preventDefault();
+			signOut(auth);
+			console.log(auth);
 		})
       </script>
 </body>
