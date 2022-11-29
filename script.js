@@ -1,9 +1,9 @@
-const drone = new Scaledrone('EysghIgjliEb1VAN'); //API 키 변수
+const drone = new ScaleDrone('EysghIgjliEb1VAN') //Scaledrone 인스턴스
 let members = []; //온라인 멤버 표시 변수
 
 drone.on('open', error => {
   if (error) {
-    return console.error(error);
+	return console.error(error);
   }})
 
 const room = drone.subscribe('my-room', {
@@ -14,11 +14,11 @@ room.on('history_message', message =>
 );
 room.on('open', error => {
   if (error) {
-    console.error(error);
+	console.error(error);
   } else {
-    console.log('Connected to room');
+	console.log('Connected to room');
   }
-});
+}); //채팅방 connect 됬을 때 console.log
 
 room.on('message', message => {
 	printmsg(message);
@@ -44,16 +44,20 @@ function sendmsg()  {
 	const msginput = document.getElementById('msginput');
 	drone.publish({
 		room: 'my-room',
-		message: msginput.value
+		message: nameinput.value + " : " + msginput.value
 	})
 	
 	msginput.value = '';
 }
+document.getElementById('members').innerHTML = members;
+document.getElementById('sendbtn').addEventListener('click', event => sendmsg());
+
+document.getElementById('msginput').addEventListener('keyup', event => enterkey());
 
 function enterkey(){ //엔터키 누를때 메시지 보내게하기
-    if (window.event.keyCode == 13) {
+	if (window.event.keyCode == 13) {
 		sendmsg();
-    }
+	}
 }
 
 const msgs = document.getElementById('messages');
@@ -61,25 +65,25 @@ function printmsg(message){
 	const msgdiv = document.createElement('div'); //message를 담을 div생성
 	const msgspan = document.createElement('span'); //message를 담을 span생성
 	const timespan = document.createElement('span'); //시간을 담을 span생성
-	
+
 	msgdiv.setAttribute('class','msgbox'); //msgdiv	의 class설정
 	if (drone.clientId != message.clientId){
 		msgdiv.setAttribute('class','msgbox notme');
 	}
-	
+
 	msgspan.setAttribute('class', 'msg'); //msgspan의 class설정
 	timespan.setAttribute('class', 'time'); //msgspan의 class설정
-	
+
 	const msg = document.createTextNode(message.data);
 	const msgtime = new Date(message.timestamp * 1000); //msg작성한 시간 변수에 저장
 	const msgtimetext = document.createTextNode(msgtime.getHours()+":"+(msgtime.getMinutes() >= 10 ? msgtime.getMinutes() : "0" + msgtime.getMinutes())); //10시 9분 -> 10:09
-	
+
 	msgspan.appendChild(msg);
 	timespan.append(msgtimetext);
 	
 	msgdiv.appendChild(msgspan); //만든 div에 message넣기
 	msgdiv.appendChild(timespan);
 	msgs.appendChild(msgdiv); // #messages div에 저장하기
-	
+
 	msgs.scrollTop = msgs.scrollHeight; //스크롤 맨 아래로 내리기
 }
