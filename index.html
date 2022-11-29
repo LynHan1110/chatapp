@@ -6,27 +6,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	</head>
 	<body>
-	 	<header id="header"><h1 id="title">Chat App</h1><a id="kakao-login-btn"></a>
-		<button class="api-btn" onclick="unlinkApp()" style="display:none" id="kakao-logout-btn">앱 탈퇴하기</button></header>
+	 	<header id="header"><h1 id="title">Chat App</h1></header>
 		
 		<div id="container">
+			<div id="members"></div>
 			<div id="messages"></div>
+			<input id="nameinput" type="text" placeholder="닉네임을 입력하세요"/>
 			<div id="msgform">
-				<input id="msginput" type="text" onkeyup="enterkey();" placeholder="메시지를 입력하세요"/><button id="sendbtn" onclick="sendmsg()">전송</button> <!-- 전송 버튼-->
+				<input id="msginput" type="text" placeholder="메시지를 입력하세요"/><button id="sendbtn">전송</button> <!-- 전송 버튼-->
 			</div>
 		</div>
 		
 		<footer id="footer">
-			<a class="w-500" style="color:#777" href="https://www.scaledrone.com/">이 어플리케이션은 Scaledrone API로 만들었습니다.</a>
-			<span>제작자: <span class="w-500">라즈베리 lynhan2101</span>    디스코드: <span class="w-500">라즈베리#8972 lynhan2101#0572</span></span>
+			<span>이 어플리케이션은 <a href="https://scaledrone.com" style="color:#777" class="w-500">Scaledrone API</a>와 <a href="https://firebase.google.com" style="color:#777" class="w-500">Firebase</a>로 만들었습니다.</span>
+			<span>제작자: <span class="w-500">라즈베리 lynhan2101</span>    디스코드: <span class="w-500">라즈베리#8972</span> 
+				<span>이메일 문의: help@chat-app.kro.kr</span></span>
+						<a href="ChatApp_Android.apk" download>Android 앱 다운로드</a>
 		</footer>
 	
 
     </body>
 	<script src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
-	<script src="script.js"></script>
-	<script src="login.js"></script>
-	<script src="logout.js"></script>
+	<script type="module" src="script.js"></script>
 </html>
 
 <!--사이트 url: https://chatapp.co.kr-->
